@@ -23,7 +23,6 @@ if (options[choice] == 'encrypt') {
 } else if (options[choice] == 'decrypt') {
     key = readlineSync.question('Enter a key for the decryption cipher: ');
     index = readlineSync.keyInSelect(algo, 'Select an encryption algorithm');
-    cipher = crypto.createCipher(algo[index], key);
     decipher = crypto.createDecipher(algo[index], key);
     textToDecrypt = readlineSync.question("Enter text to decrypt: ");
     
