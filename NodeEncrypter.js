@@ -22,11 +22,10 @@ if (options[choice] == 'encrypt') {
     
 } else if (options[choice] == 'decrypt') {
     key = readlineSync.question('Enter a key for the decryption cipher: ');
-    index = readlineSync.keyInSelect(algo, 'Select an encryption algorithm');
+    index = readlineSync.keyInSelect(algo, 'Select an algorithm for decryption');
     decipher = crypto.createDecipher(algo[index], key);
     textToDecrypt = readlineSync.question("Enter text to decrypt: ");
-    
-    var decrypted = decipher.update(textToDecrypt, 'hex', 'utf8');
+    decrypted = decipher.update(textToDecrypt, 'hex', 'utf8');
     decrypted += decipher.final('utf8');
     console.log("Decrypted text = " + decrypted);
 } else {
